@@ -5,6 +5,11 @@ import { useAuthStore } from "../hooks";
 import { useEffect } from "react";
 
 
+import { Player } from "@lottiefiles/react-lottie-player";
+
+import loader from '../assets/pacman-loader.json';
+import { Box } from "@chakra-ui/react";
+
 export const AppRouter = () => {
 
 
@@ -16,7 +21,11 @@ export const AppRouter = () => {
 
 
   if (status === 'checking') {
-    return <h3>Cargando...</h3>
+    return <div className="mt-5">
+      <Box position="relative" h="80vh" display="flex" justifyContent="center" alignItems="center">
+        <Player autoplay loop src={loader} style={{ height: 'auto', width: '100%' }} />
+      </Box>
+    </div>
   }
 
   // const authStatus = 'not-authenticated';
